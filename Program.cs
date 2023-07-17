@@ -1,4 +1,13 @@
+using APIfin.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var connectionString = builder.Configuration.GetConnectionString("APIfin");
+
+builder.Services.AddDbContext<DbContext>(options => options.UseSqlServer(connectionString));
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 // Add services to the container.
 
