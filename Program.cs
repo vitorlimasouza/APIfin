@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = builder.Configuration.GetConnectionString("APIfin");
+var connectionString = builder.Configuration.GetConnectionString("Connection");
 
-builder.Services.AddDbContext<DbContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<DbRepository>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
